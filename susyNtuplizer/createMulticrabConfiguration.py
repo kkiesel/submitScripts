@@ -2,6 +2,8 @@
 import ConfigParser
 import os
 
+"""This script creates a falid multicrab configuration file."""
+
 filename = "multicrab_gen.cfg"
 inputFile = "rawMulticrab.cfg"
 version = "V02"
@@ -31,11 +33,11 @@ for section in conf.sections():
     output += "CMSSW.datasetpath = %s\n"%conf.get( section, "datasetpath" )
     output += "CMSSW.pset = %s\n"%pset
     output += "CMSSW.pycfg_params = dataset=%s\n"%conf.get( section, "dataset" )
-    if "Run20" in conf.get( section, "datasetpath" ):
+    if "Run20" in conf.get( section, "datasetpath" ): # is Data
         output += "CMSSW.total_number_of_lumis = %s\n"%total_number_of_lumis
         output += "CMSSW.lumis_per_job = %s\n"%lumis_per_job
         output += "CMSSW.lumi_mask = %s\n"%lumiPath
-    else:
+    else: # is MC
         output += "CMSSW.total_number_of_events = %s\n"%total_number_of_events
         output += "CMSSW.events_per_job = %s\n"%events_per_job
 
