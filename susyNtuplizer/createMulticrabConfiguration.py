@@ -12,7 +12,7 @@ events_per_job = 50000
 total_number_of_lumis = -1
 lumis_per_job = 200
 
-pset = os.environ['CMSSW_BASE']+"/src/SusyAnalysis/SusyNtuplizer/runOverAOD_CommandLine.py"
+pset = os.environ['CMSSW_BASE']+"/src/SUSYPhotonAnalysis/SusyNtuplizer/runOverAOD_CommandLine.py"
 
 conf = ConfigParser.SafeConfigParser()
 conf.read( inputFile )
