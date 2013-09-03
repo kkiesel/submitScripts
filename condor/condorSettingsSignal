@@ -1,0 +1,10 @@
+universe = vanilla
+Executable = /uscms/home/kiesel/submitScripts/condor/submitSignal.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = job.stdout
+Error = job.stderr
+Log = job.log
+notification = Complete
+notify_user = ${LOGNAME}@FNAL.GOV
+Queue NOQUEUES

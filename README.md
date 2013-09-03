@@ -12,3 +12,13 @@ python2 createMulticrabConfiguration.py
 ```
 multicrab -cfg multicrab_gen.cfg -create -submit
 ```
+
+## condor
+
+* set upt the [treeWriter](https://github.com/kkiesel/singlePhoton/tree/master/TreeWriter)
+* check the settings in executable.cc
+* compile treeWriter
+
+Submit the jobs with ```condor_submit condorSettingsSignal```
+Check the status with ```condor_q -submitter $USER```
+
