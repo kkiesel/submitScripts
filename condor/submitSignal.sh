@@ -1,27 +1,41 @@
 #!/bin/bash
 
+version=V03.$2
+inputPath=$1
+
+echo Get final plots for all samples with version $version
+
+echo set prod
 . /uscmst1/prod/sw/cms/shrc prod
 
+echo export
 export SCRAM_ARCH=slc5_amd64_gcc462
 
-cd ~/CMSSW_5_3_8_patch3/src
-echo "Set cmssw environment"
+echo cd to folder
+cd /uscms_data/d1/kiesel/CMSSW_5_3_8_patch3/src
+echo eval
 eval `scramv1 runtime -sh`
-cd
+echo now cd to working dir
+cd ${_CONDOR_SCRATCH_DIR}
 
-inputPath=/eos/uscms/store/user/lpcpjm/PrivateMC/FastSim/525p1/Spectra_gsq_W/SusyNtuple/cms533v1_v1/
+echo in this directory there is
+ls
 
-echo "input path"
 echo $inputPath
+abbr=${inputPath:65:1}_gsq
 
-#for file in $(ls $inputPath)
-#do
-#	~/singlePhoton/TreeWriter/executable out$file $inputPath$file
-#done
+if [[ "$inputPath" == "/uscms_data/d1/y/wino/" ]]; then
+	abbr='W_gsq2'
+fi
+echo $abbr
 
-echo "is file there?"
-ls /afs/cern.ch/user/k/kiesel/public/qcdWeight.root
+for file in $(ls $inputPath)
+do
+	./treeWriter out${abbr}_$version$file $inputPath$file
+done
 
-file=tree_1000_1020_375.root
-~/singlePhoton/TreeWriter/executable out$file $inputPath$file
+echo now add the samples
+hadd -f -k ${abbr}_$version.root out${abbr}_$verion*root
+
+rm out${abbr}_${version}*root
 
