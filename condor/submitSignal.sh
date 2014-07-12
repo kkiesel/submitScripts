@@ -17,10 +17,13 @@ echo eval
 eval `scramv1 runtime -sh`
 echo now cd to working dir
 cd ${_CONDOR_SCRATCH_DIR}
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`
 
 echo in this directory there is
 ls
-
+echo path is now:
+echo $PATH
+echo inputpath:
 echo $inputPath
 abbr=${inputPath:65:1}_gsq
 

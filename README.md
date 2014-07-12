@@ -22,7 +22,7 @@ multicrab -cfg multicrab_gen.cfg -create -submit
 Submit the jobs with
 
 condor_submit condorSignal.jdl -a 'Arguments = /eos/uscms/store/user/lpcpjm/PrivateMC/FastSim/525p1/Spectra_gsq_W/SusyNtuple/cms533v1_v1/ 03'
-condor_submit condorSignal.jdl -a 'Arguments = /eos/uscms/store/user/lpcpjm/PrivateMC/FastSim/525p1/Spectra_gsq_W/SusyNtuple/cms533v1_v1/ 03'
+condor_submit condorSignal.jdl -a 'Arguments = /eos/uscms/store/user/lpcpjm/PrivateMC/FastSim/525p1/Spectra_gsq_B/SusyNtuple/cms533v1_v1/ 03'
 condor_submit condorSignal.jdl -a 'Arguments = /uscms_data/d1/y/wino/ 03'
 
 Check the status with ```condor_q -submitter $USER```
