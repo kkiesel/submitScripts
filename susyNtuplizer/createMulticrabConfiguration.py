@@ -6,7 +6,7 @@ import os
 
 filename = "multicrab_gen.cfg"
 inputFile = "rawMulticrab.cfg"
-version = "V02"
+version = "V03"
 
 total_number_of_events = -1
 events_per_job = 50000
